@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+   
+    /* Question 01 :
+    Create a function as a variable (function expression) that prints ‘Hello World’ to console
+    and another function that accepts a variable. The argument passed to the second
+    the function should be executed as a function inside the body. Call the second function
+    passing the first function as the argument. Check the output.  */
+    console.log("Hello world normal print");
+
+    //normal function
+   function printHello(){
+       console.log("Hello world")
+   }
+
+    //function as a variable
+   var printHelloVarFun = function (){
+       console.log("Hello world - variable function")
+    }
+
+
+    //function which accept a function as a argument
+    function printer(functionName){
+       //call the function
+       functionName();
+    }
+
+    function printer2(functionName){
+        //assign to a variable after calling  the function
+        var execute = functionName();
+        execute();
+    }
+
+
+    //function which returns a function
+    var printHelloWorld = function (){
+       return function (){
+           console.log("Hello world return function")
+       }
+    }
+
+    //calling functions
+    printHello();
+    printHelloVarFun();
+    printer(printHello);
+
+    //calling the function which returns a function
+    printer(printHelloWorld);
+    printer2(printHelloWorld);
+
+    /*
+    Question 02
+    Use curly brackets to create JSON like JavaScript object and add properties and
+    functions to the object.*/
+
+    var person = {
+        name : 'saman',
+        age : 20,
+        printName :function (name) {
+            console.log(this.name);
+        }
+    };
+
+
+    person.printName();
+
+
+    /*Question03
+    Understand the ‘this’ keyword in JavaScript.*/
+
+
+    // a. Declare a global variable named vehicleName in the window object.
+
+    var vehicleName = 'Toyota';
+
+    // b. Declare a method named printVehicleName to print out the vehicle name.
+
+    function printVehicleName(){
+        console.log(this.vehicleName);
+    };
+
+    printVehicleName();
+
+    // c. Declare an object named Vehicle(using object literal notation) which have a variable called
+    // vehicleName and declare a function named getVehicleName and assign it with the printVehicleName.
+
+    var Vehicle = {
+        vehicleName : 'Nissan',
+        getVehicleName : printVehicleName
+    }
+
+    Vehicle.getVehicleName();
+
+
+    var car = {
+        vehicleName : 'BMW',
+        getVehicleName : function () {
+            return function (){
+                console.log(this.vehicleName);
+            }
+        }
+    }
+
+    var execute = car.getVehicleName();
+
+    //print bmw after bind this execute function with car object, if else it will print Toyota when we execute the function 'execute()'
+
+    execute= execute.bind(car)
+    execute();
+
+    /*question04
+    Create a separate function using JavaScript closure which accepts the tax percentage
+    and returns a function that accepts the amount and returns the amount after adding tax
+    percentage. Try adding tax percentage to ‘this’ object and check if it works.*/
+
+
+    function taxCalculator(percentage){
+        return function (amount){
+            return amount * percentage;
+        }
+    }
+
+    var cal = taxCalculator(0.12);
+
+    console.log(cal(400));
+
+    /*question05
+    Write a function to call JSON Placeholder API
+    (https://jsonplaceholder.typicode.com/posts) and get users and return the users to the
+    caller.*/
+
+
+    fetch('https://jsonplaceholder.typicode.com/posts/')
+    .then((response)=>response.json())
+    .then((json)=>console.log(json));
+
+    console.log('here');
+
+</script>
+
+</body>
+</html>
