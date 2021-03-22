@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE
+        >
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,12 +21,12 @@
              value2 = 20;
             callback(value1,value2)
         },5000);
-
     }
+
     //calling getValueAfter5 function by passing a function as a parameter
     getValueAfter5(function (value1, value2){
         const total = value1+ value2;
-        console.log(total);
+        console.log("callback function worked and value is :" +total);
     })
 
 
@@ -54,6 +55,28 @@
             console.log("New value is "+newValue);
         })
     });
+
+
+    //Now return a promise instead of accepting the callback.
+
+
+    function promiseGetValue(){
+        let value = 0;
+        //resolve -> success
+        //reject - > error
+        return new Promise(function (resolve,reject){
+            setTimeout(function (){
+                value =10;
+                resolve(value);
+            },1000);
+        });
+    }
+
+    promiseGetValue().then(function (value){
+        console.log("promise function worked and value is :"+value);
+    })
+
+
 
 </script>
 
