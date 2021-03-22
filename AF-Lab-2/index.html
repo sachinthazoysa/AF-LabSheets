@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab02</title>
+</head>
+<body>
+<script type="text/javascript">
+
+// Question 01 -   Promises/Asynchronous and callbacks
+
+//Create a function that returns a value after 1 second (return inside a setTimeout).
+
+    //getValueAfter5 function accepts a function called callback
+    function getValueAfter5(callback){
+        let value1 =0;
+        let value2 =0;
+        setTimeout(function (){
+             value1 = 10;
+             value2 = 20;
+            callback(value1,value2)
+        },5000);
+
+    }
+    //calling getValueAfter5 function by passing a function as a parameter
+    getValueAfter5(function (value1, value2){
+        const total = value1+ value2;
+        console.log(total);
+    })
+
+
+
+    //simple method which accepts a function as an argument
+    function getValue(callback){
+        let value =0;
+        setTimeout(function (){
+            value= 10;
+            callback(value)
+        },5000);
+
+    }
+
+    //method which accepts two arguments which are value and a function
+    function getNewValue(value, callback){
+        setTimeout(function (){
+            callback(value*1000);
+        },10000);
+    }
+
+    //calling getValue method by passing a function
+    getValue(function (value){
+        //calling getNewValue function inside getValue method
+        getNewValue(value, function (newValue){
+            console.log("New value is "+newValue);
+        })
+    });
+
+</script>
+
+</body>
+</html>
