@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+
+    function promiseGetValue() {
+        let value = 0;
+        //arrow function, no function keyword. uses '=>'.
+        return new Promise( (resolve, reject) => {
+            setTimeout(function () {
+                value = 10;
+                resolve(value);
+            }, 1000);
+        });
+    }
+
+    promiseGetValue();
+
+
+    //if it is a simple line function we can use it like this
+
+    // print().then(value => console.log(value));
+
+    // print().then(function (value){
+    //     console.log("async function output: "+value);
+    // });
+
+    //if it is multiple parameters we need brackets, but with single no need
+
+    //another usage of arrow function
+    // print().then(value => setValue(value)).then(value => console.log(value));
+
+    // const persons = {
+    //     organization  : 'Science',
+    //     people : ['John','Jane'],
+    //     print : function (){
+    //         this.people.forEach(function (value){
+    //             console.log(value, this.organization);
+    //         });
+    //     }
+    // }
+
+    //this will print as John undefined, Jane undefined. since in foreach loops this keyword not takes the inner value,rather it takes the outer
+    //we can use => function to take the inner value
+
+    const persons = {
+        organization  : 'Science',
+        people : ['John','Jane'],
+        print : function (){
+            console.log(this);
+            this.people.forEach(value => console.log(value, this.organization));
+        }
+    }
+
+
+    persons.print();
+
+</script>
+</body>
+</html>

@@ -96,7 +96,10 @@
         console.log("value at last is:" + value);
     }).then(function () {
         console.log("promise chain testing");
-    })
+    }).catch(function (err){
+        //exception handling in promises
+        console.log(err)
+    });
 
     //resolve method can only accept 1 argument, cannot return multiple values from a promise as well
     //also when creating the promise 'reject' is not mandatory

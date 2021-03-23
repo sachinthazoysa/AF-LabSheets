@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    // Question 04 -   Try question 1 with async/await
+
+
+    function promiseGetValue() {
+        let value = 0;
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                value = 10;
+                resolve(value);
+            }, 1000);
+        });
+    }
+
+    function promiseGetNewValue(value) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve(value * 100);
+            }, 1000);
+        })
+    }
+
+    promiseGetValue().then(function (value) {
+        console.log("promise function worked and value is :" + value);
+    })
+
+    function setValue(value) {
+        return value + 9999;
+    }
+
+
+    //async function
+    async function print() {
+        try {
+            //we can use await if the function is only a promise
+            let value = await promiseGetValue();
+            value = await promiseGetNewValue(value);
+            value = setValue(value);
+            // console.log("async function output:" + value);
+            return value;
+        } catch (e) {
+            console.log(e);
+        }
+
+    }
+
+    print().then(function (value){
+        console.log("async function output: "+value);
+    });
+
+
+</script>
+
+
+</body>
+</html>
