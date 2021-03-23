@@ -6,7 +6,7 @@
 </head>
 <body>
 <script type="text/javascript">
-   
+
     /* Question 01 :
     Create a function as a variable (function expression) that prints ‘Hello World’ to console
     and another function that accepts a variable. The argument passed to the second
@@ -15,23 +15,23 @@
     console.log("Hello world normal print");
 
     //normal function
-   function printHello(){
-       console.log("Hello world")
-   }
+    function printHello() {
+        console.log("Hello world")
+    }
 
     //function as a variable
-   var printHelloVarFun = function (){
-       console.log("Hello world - variable function")
+    var printHelloVarFun = function () {
+        console.log("Hello world - variable function")
     }
 
 
     //function which accept a function as a argument
-    function printer(functionName){
-       //call the function
-       functionName();
+    function printer(functionName) {
+        //call the function
+        functionName();
     }
 
-    function printer2(functionName){
+    function printer2(functionName) {
         //assign to a variable after calling  the function
         var execute = functionName();
         execute();
@@ -39,10 +39,10 @@
 
 
     //function which returns a function
-    var printHelloWorld = function (){
-       return function (){
-           console.log("Hello world return function")
-       }
+    var printHelloWorld = function () {
+        return function () {
+            console.log("Hello world return function")
+        }
     }
 
     //calling functions
@@ -60,9 +60,9 @@
     functions to the object.*/
 
     var person = {
-        name : 'saman',
-        age : 20,
-        printName :function (name) {
+        name: 'saman',
+        age: 20,
+        printName: function (name) {
             console.log(this.name);
         }
     };
@@ -81,7 +81,7 @@
 
     // b. Declare a method named printVehicleName to print out the vehicle name.
 
-    function printVehicleName(){
+    function printVehicleName() {
         console.log(this.vehicleName);
     };
 
@@ -91,17 +91,17 @@
     // vehicleName and declare a function named getVehicleName and assign it with the printVehicleName.
 
     var Vehicle = {
-        vehicleName : 'Nissan',
-        getVehicleName : printVehicleName
+        vehicleName: 'Nissan',
+        getVehicleName: printVehicleName
     }
 
     Vehicle.getVehicleName();
 
 
     var car = {
-        vehicleName : 'BMW',
-        getVehicleName : function () {
-            return function (){
+        vehicleName: 'BMW',
+        getVehicleName: function () {
+            return function () {
                 console.log(this.vehicleName);
             }
         }
@@ -111,7 +111,7 @@
 
     //print bmw after bind this execute function with car object, if else it will print Toyota when we execute the function 'execute()'
 
-    execute= execute.bind(car)
+    execute = execute.bind(car)
     execute();
 
     /*question04
@@ -120,8 +120,8 @@
     percentage. Try adding tax percentage to ‘this’ object and check if it works.*/
 
 
-    function taxCalculator(percentage){
-        return function (amount){
+    function taxCalculator(percentage) {
+        return function (amount) {
             return amount * percentage;
         }
     }
@@ -137,8 +137,8 @@
 
 
     fetch('https://jsonplaceholder.typicode.com/posts/')
-    .then((response)=>response.json())
-    .then((json)=>console.log(json));
+        .then((response) => response.json())
+        .then((json) => console.log(json));
 
     console.log('here');
 

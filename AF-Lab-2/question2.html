@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    // Question 02 -   Classes in Javascript
+
+
+    //Create a class named Vehicle using a function
+    class Vehicle {
+        //Add VehicleCount (Vehicle.VehicleCount) as a static variable
+        static vehicleCount =0;
+
+        //Add a property named type to the class (this.type). Assign a value to that variable using a constructor argument
+        constructor(type) {
+            this.type = type;
+            //increase the number of VehicleCount (Vehicle.VehicleCount++) by one inside the constructor
+            Vehicle.vehicleCount++;
+        }
+
+        printDetails() {
+            console.log("vehicle index :" + Vehicle.vehicleCount);
+            console.log("vehicle type is:" + this.type);
+        }
+    }
+
+    //Add a function to its prototype named drive (Vehicle.prototype.print...). Print 'vehicle is driving in the function body'
+    Vehicle.prototype.drive = function () {
+        console.log("Vehicle is driving");
+
+    }
+
+
+    //Create an object from Vehicle class (new Vehicle)
+    v1 = new Vehicle('Car');
+    //check static variable value, type property value and function work
+    v1.drive();
+    v1.printDetails();
+
+
+    v2 = new Vehicle('Jeep');
+    v2.drive();
+    v2.printDetails();
+
+    //Create a class named Car and extend the class Vehicle
+    class Car extends Vehicle{
+        balanceWheels(){
+            console.log("Wheels are balanced");
+        }
+    }
+
+    Car.prototype = Object.create(Vehicle.prototype);
+    Car.prototype.constructor = Car;
+
+    //Call balanceWheels and drive methods using a car object and verify the functionality
+    c1 = new Car('toyota');
+    c1.balanceWheels();
+    c1.printDetails();
+    c1.drive();
+
+
+
+</script>
+
+</body>
+</html>
