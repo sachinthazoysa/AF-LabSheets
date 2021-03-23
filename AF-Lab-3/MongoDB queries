@@ -20,7 +20,7 @@ db.students.find({name :'John'})
 
 
 //find by _id
-db.students.find({_id :'ObjectId("605a1a6c421c6ccb2d75252a")'})
+db.students.find({_id :'605a22e1421c6ccb2d752531'})
 
 
 //Add ‘Distributed Computing’ to the subjects list.
