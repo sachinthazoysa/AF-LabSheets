@@ -57,6 +57,15 @@ const newOutFileName = __dirname + '/testcopy.txt';
 const readStream = fs.createReadStream(newFileName);
 const writeStream = fs.createWriteStream(newOutFileName);
 
+readStream.addListener('end',()=>{
+    console.log("End of file read");
+});
+
+writeStream.addListener('close',()=>{
+    console.log("End of file write");
+});
+
+
 //Pipe the read stream to write stream.
 readStream.pipe(writeStream);
 
@@ -98,6 +107,10 @@ httpNew.createServer((req, res) => {
             break;
     }
 }).listen(3001, (err)=> {
+    if(err){
+        console.log(err);
+        return;
+    }
     console.log('server is listening to port 3001')
 });
 
