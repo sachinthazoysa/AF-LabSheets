@@ -1,0 +1,55 @@
+
+//check node version
+C:\Users\deZoysa\WebstormProjects\AF-LabSheets>node -v
+v12.14.1
+
+//update the node version to latest
+C:\Users\deZoysa\WebstormProjects\AF-LabSheets>npm install npm@latest -g
+
+C:\Users\deZoysa\WebstormProjects\AF-LabSheets>node -v
+v14.16.0
+
+
+//create node project/ environment
+C:\Users\deZoysa\WebstormProjects\AF-LabSheets\AF-Lab-4\nodeLab>npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (nodelab)
+version: (1.0.0)
+description:
+entry point: (index.js) app.js
+test command:
+git repository:
+keywords:
+author: de Zoysa
+license: (ISC)
+About to write to C:\Users\deZoysa\WebstormProjects\AF-LabSheets\AF-Lab-4\nodeLab\package.json:
+
+{
+  "name": "nodelab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "de Zoysa",
+  "license": "ISC"
+}
+
+
+Is this OK? (yes)
+
+
+//run node application
+C:\Users\deZoysa\WebstormProjects\AF-LabSheets\AF-Lab-4\nodeLab>node app.js
+Hello world
+
