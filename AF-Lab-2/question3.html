@@ -22,31 +22,31 @@
     promiseGetValue();
 
 
-    //if it is a simple line function we can use it like this
+    // if it is a simple line function we can use it like this
 
-    // print().then(value => console.log(value));
+    print().then(value => console.log(value));
 
-    // print().then(function (value){
-    //     console.log("async function output: "+value);
-    // });
+    print().then(function (value){
+        console.log("async function output: "+value);
+    });
 
-    //if it is multiple parameters we need brackets, but with single no need
+    // if it is multiple parameters we need brackets, but with single no need
 
-    //another usage of arrow function
-    // print().then(value => setValue(value)).then(value => console.log(value));
+    // another usage of arrow function
+    print().then(value => setValue(value)).then(value => console.log(value));
 
-    // const persons = {
-    //     organization  : 'Science',
-    //     people : ['John','Jane'],
-    //     print : function (){
-    //         this.people.forEach(function (value){
-    //             console.log(value, this.organization);
-    //         });
-    //     }
-    // }
+    const persons = {
+        organization  : 'Science',
+        people : ['John','Jane'],
+        print : function (){
+            this.people.forEach(function (value){
+                console.log(value, this.organization);
+            });
+        }
+    }
 
-    //this will print as John undefined, Jane undefined. since in foreach loops this keyword not takes the inner value,rather it takes the outer
-    //we can use => function to take the inner value
+    // this will print as John undefined, Jane undefined. since in foreach loops this keyword not takes the inner value,rather it takes the outer
+    // we can use => function to take the inner value
 
     const persons = {
         organization  : 'Science',
