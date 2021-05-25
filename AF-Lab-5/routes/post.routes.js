@@ -16,6 +16,7 @@ router.post('/', ctx => {
     ctx.response.status = 201;
     ctx.body = post;
 });
+
 router.get('/:id', ctx => {
     const id = ctx.params.id;
     ctx.body = getPost(id);

@@ -3,15 +3,16 @@ const uuid = require('uuid');
 let postsMap = new Map();
 
 
-function createPost({_name,_description}){
+function createPost({name,description}){
 
     let obj ={
         id:uuid.v4(),
+        name,
+        description,
         postedDate:new Date(),
-        name : _name,
-        description : _description
+
     }
-    postsMap.set(`${obj.id}`,{obj});
+    postsMap.set(obj.id,obj);
     return obj.id;
 }
 
