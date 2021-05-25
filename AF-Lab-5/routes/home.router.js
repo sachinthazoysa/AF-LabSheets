@@ -10,12 +10,12 @@ router.get('/', context =>{
 
 
 router.get('/world2', context =>{
-    context.body = 'Hello World 2 worked';
+    context.body = 'Hello World from home get';
 });
 
 
 router.post('/world2',context =>{
-    context.body ='Hello world';
+    context.body ='Hello world from home post';
 });
 
 
